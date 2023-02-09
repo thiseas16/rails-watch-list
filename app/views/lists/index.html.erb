@@ -1,0 +1,18 @@
+<%= render 'navbar' %>
+
+<div class = 'banner'>
+  <h1>Save any kind of movies</h1>
+</div>
+
+
+<div style = 'display: flex; justify-content: space-evenly;'>
+  <% @lists.each do |l| %>
+    <div class="card" style="width: 72rem; margin: 50px;">
+    <%= image_tag asset_path("#{l.name.downcase}.jpg"), class: "card-img-top"%>
+    <div class="card-body">
+      <h5 class="card-title"><%= l.name %></h5>
+      <h1><%= link_to 'See more', list_path(l), class: 'btn btn-primary' %></h1>
+    </div>
+    </div>
+  <% end %>
+</div>

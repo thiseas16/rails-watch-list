@@ -1,0 +1,9 @@
+<%= render 'navbar' %>
+
+<h1><%= @list.name %></h1>
+<% @list.bookmarks.each do |b| %>
+  <p><%= b.movie.title %> : <%= b.comment %></p>
+  <p><%= link_to 'Delete', bookmark_path(b), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+  <% end %>
+
+<%= link_to 'Add new Bookmark', new_bookmark_path(@list) %>
